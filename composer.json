@@ -1,0 +1,29 @@
+{
+    "name":         "braincrafted/user-admin-bundle",
+    "description":  "Administration interface for BcUserBundle",
+    "keywords":     ["user", "admin", "gui"],
+    "type":         "symfony-bundle",
+    "license":      "MIT",
+    "authors":     [
+        {
+            "name":     "Florian Eckerstorfer",
+            "email":    "florian@theroadtojoy.at",
+            "homepage": "http://florianeckerstorfer.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/braincrafted/user-bundle"
+        }
+    ],
+    "require":      {
+        "php":                              ">=5.3.3",
+        "braincrafted/user-bundle":         "dev-develop",
+        "braincrafted/bootstrap-bundle":    "dev-develop"
+    },
+    "autoload": {
+        "psr-0": { "Bc\\Bundle\\UserAdminBundle": "" }
+    },
+    "target-dir": "Bc/Bundle/UserAdminBundle"
+}
