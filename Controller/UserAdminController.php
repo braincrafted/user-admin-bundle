@@ -38,7 +38,9 @@ class UserAdminController extends Controller
             $form->bind($request);
 
             if ($form->isValid()) {
-                $this->get('fos_user.user_manager')->updateUser($form->getData());
+                $user = $form->getData();
+                $this->get('fos_user.user_manager')->updateUser($user);
+                $this->flash('success', sprintf('The user %s has been created.', $user->getUsername()));
                 return $this->redirect($this->generateUrl('bc_user_admin_list'));
             }
         }
@@ -54,7 +56,23 @@ class UserAdminController extends Controller
         $user = $userManager->findUserBy(array('id' => $userId));
         if ($user) {
             $userManager->deleteUser($user);
-            return $this->redirect($this->generateUrl('bc_user_admin_list'));
+            $this->flash('success', sprintf('The user %s has been deleted.', $user->getUsername()));
+        } else {
+            $this->flash('error', sprintf('There is no user with the ID %d', $userId));
         }
+
+        return $this->redirect($this->generateUrl('bc_user_admin_list'));
+    }
+
+    /**
+     * Sets a flash message.
+     *
+     * @param  string $type    The type of message (error|info|success|warning)
+     * @param  string $message The message
+     * @return void
+     */
+    protected function flash($type, $message)
+    {
+        $this->get('session')->getFlashBag()->add($type, $message);
     }
 }
