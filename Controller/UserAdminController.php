@@ -17,7 +17,9 @@ class UserAdminController extends Controller
      */
     public function listAction()
     {
+        $userManager = $this->get('fos_user.user_manager');
         return $this->render('BcUserAdminBundle:UserAdmin:list.html.twig', array(
+            'users' => $userManager->findUsers()
         ));
     }
 
@@ -36,6 +38,7 @@ class UserAdminController extends Controller
             $form->bind($request);
 
             if ($form->isValid()) {
+                $this->get('fos_user.user_manager')->updateUser($form->getData());
                 return $this->redirect($this->generateUrl('bc_user_admin_list'));
             }
         }
@@ -43,5 +46,15 @@ class UserAdminController extends Controller
         return $this->render('BcUserAdminBundle:UserAdmin:create.html.twig', array(
             'form'  => $form->createView()
         ));
+    }
+
+    public function deleteAction($userId)
+    {
+        $userManager = $this->get('fos_user.user_manager');
+        $user = $userManager->findUserBy(array('id' => $userId));
+        if ($user) {
+            $userManager->deleteUser($user);
+            return $this->redirect($this->generateUrl('bc_user_admin_list'));
+        }
     }
 }

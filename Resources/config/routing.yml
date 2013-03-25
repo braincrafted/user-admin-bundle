@@ -1,6 +1,11 @@
 bc_user_admin_list:
     pattern:  /
     defaults: { _controller: BcUserAdminBundle:UserAdmin:list }
+
 bc_user_admin_create:
     pattern:  /create
     defaults: { _controller: BcUserAdminBundle:UserAdmin:create }
+
+bc_user_admin_delete:
+    pattern:  /delete/{userId}
+    defaults: { _controller: BcUserAdminBundle:UserAdmin:delete }
