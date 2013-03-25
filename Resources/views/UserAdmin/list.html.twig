@@ -43,7 +43,10 @@
             <td>{{ user.id }}</td>
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
-            <td><a href="{{ path('bc_user_admin_delete', { 'userId': user.id }) }}" class="btn btn-mini">Delete</a></td>
+            <td>
+                <a href="{{ path('bc_user_admin_update', { 'userId': user.id }) }}" class="btn btn-mini">Update</a>
+                <a href="{{ path('bc_user_admin_delete', { 'userId': user.id }) }}" class="btn btn-mini">Delete</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

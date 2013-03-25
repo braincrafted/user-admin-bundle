@@ -26,7 +26,7 @@ class UserAdminController extends Controller
     /**
      * The create action.
      *
-     * @param  Request $request The request
+     * @param Request $request The request
      *
      * @return string The response
      */
@@ -50,6 +50,50 @@ class UserAdminController extends Controller
         ));
     }
 
+    /**
+     * The update action.
+     *
+     * @param integer $userId  The user ID
+     * @param Request $request The request object
+     *
+     * @return string          The response
+     */
+    public function updateAction($userId, Request $request)
+    {
+        $userManager = $this->get('fos_user.user_manager');
+        $user = $userManager->findUserBy(array('id' => $userId));
+
+        if (!$user) {
+            $this->flash('error', sprintf('There is no user with the ID %d', $userId));
+            return $this->redirect($this->generateUrl('bc_user_admin_list'));
+        }
+
+        $form = $this->createForm(new CreateUserType(), $user);
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $user = $form->getData();
+                $userManager->updateUser($user);
+
+                $this->flash('success', sprintf('The user %s has been updated.', $user->getUsername()));
+                return $this->redirect($this->generateUrl('bc_user_admin_list'));
+            }
+        }
+
+        return $this->render('BcUserAdminBundle:UserAdmin:update.html.twig', array(
+            'user'  => $user,
+            'form'  => $form->createView()
+        ));
+    }
+
+    /**
+     * The delete action.
+     *
+     * @param integer $userId The user ID
+     *
+     * @return string The response
+     */
     public function deleteAction($userId)
     {
         $userManager = $this->get('fos_user.user_manager');
