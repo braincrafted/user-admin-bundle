@@ -1,13 +1,27 @@
 <?php
+/**
+ * This file is part of braincrafted/user-admin-bundle.
+ *
+ * (c) 2013 Florian Eckerstorfer
+ */
 
 namespace Bc\Bundle\UserAdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use Bc\Bundle\UserBundle\Form\Type\CreateUserType;
+use Bc\Bundle\UserBundle\Form\Type\UpdateUserType;
 use Bc\Bundle\UserBundle\Entity\User;
 
+/**
+ * UserAdminController
+ *
+ * @package     braincrafted/user-admin-bundle
+ * @subpackage  Controller
+ * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright   2013 Florian Eckerstorfer
+ * @license     http://opensource.org/licenses/MIT The MIT License
+ */
 class UserAdminController extends Controller
 {
     /**
@@ -18,6 +32,7 @@ class UserAdminController extends Controller
     public function listAction()
     {
         $userManager = $this->get('fos_user.user_manager');
+
         return $this->render('BcUserAdminBundle:UserAdmin:list.html.twig', array(
             'users' => $userManager->findUsers()
         ));
@@ -32,7 +47,7 @@ class UserAdminController extends Controller
      */
     public function createAction(Request $request)
     {
-        $form = $this->createForm(new CreateUserType(), new User());
+        $form = $this->createForm(new UpdateUserType(), new User());
 
         if ($request->isMethod('POST')) {
             $form->bind($request);
@@ -68,7 +83,7 @@ class UserAdminController extends Controller
             return $this->redirect($this->generateUrl('bc_user_admin_list'));
         }
 
-        $form = $this->createForm(new CreateUserType(), $user);
+        $form = $this->createForm(new UpdateUserType(), $user);
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
