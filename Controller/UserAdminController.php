@@ -10,6 +10,7 @@ namespace Bc\Bundle\UserAdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use Bc\Bundle\UserBundle\Form\Type\CreateUserType;
 use Bc\Bundle\UserBundle\Form\Type\UpdateUserType;
 use Bc\Bundle\UserBundle\Entity\User;
 
@@ -47,7 +48,7 @@ class UserAdminController extends Controller
      */
     public function createAction(Request $request)
     {
-        $form = $this->createForm(new UpdateUserType(), new User());
+        $form = $this->createForm(new CreateUserType(), new User());
 
         if ($request->isMethod('POST')) {
             $form->bind($request);
