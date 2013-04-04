@@ -2,7 +2,7 @@
 
 {% block bc_user_admin_content %}
 
-<h1>Create user</h1>
+<h1>{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</h1>
 
 <form action="{{ path('bc_user_admin_create') }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
 
@@ -10,7 +10,7 @@
 
     <div class="control-group">
         <div class="controls">
-            <button type="submit" class="btn">Create user</button>
+            <button type="submit" class="btn">{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</button>
         </div>
     </div>
 

@@ -2,7 +2,7 @@
 
 {% block bc_user_admin_content %}
 
-<h1>Update user {{ user.username }}</h1>
+<h1>{{ 'user.update_user'|trans({'%username%': user.username }, 'BcUserAdminBundle') }}</h1>
 
 <form action="{{ path('bc_user_admin_update', { 'userId': user.id }) }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
 
@@ -10,7 +10,7 @@
 
     <div class="control-group">
         <div class="controls">
-            <button type="submit" class="btn">Update user</button>
+            <button type="submit" class="btn">{{ 'user.update_user'|trans({}, 'BcUserAdminBundle') }}</button>
         </div>
     </div>
 
