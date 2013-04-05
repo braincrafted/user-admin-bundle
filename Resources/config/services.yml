@@ -6,6 +6,7 @@ services:
         class: %bc_user_admin.menu_builder.class%
         arguments:
             - @knp_menu.factory
+            - @translator
 
     bc_user_admin.menu.user_admin:
         class: Knp\Menu\MenuItem

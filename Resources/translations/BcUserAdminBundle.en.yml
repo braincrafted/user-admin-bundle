@@ -8,3 +8,6 @@ user:
     delete: Delete
     username: Username
     email: Email
+
+menu:
+    users: Users
