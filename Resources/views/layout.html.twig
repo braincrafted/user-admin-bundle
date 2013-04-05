@@ -27,7 +27,7 @@
 <div class="container">
     <div class="row-fluid">
         <div class="span3">
-            Sidebar
+            {{ knp_menu_render('user_admin') }}
         </div>
         <div class="span9">
             {% block bc_user_admin_content %}{% endblock bc_user_admin_content %}
