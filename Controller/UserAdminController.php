@@ -10,8 +10,8 @@ namespace Bc\Bundle\UserAdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use Bc\Bundle\UserBundle\Form\Type\CreateUserType;
-use Bc\Bundle\UserBundle\Form\Type\UpdateUserType;
+use Bc\Bundle\UserAdminBundle\Form\Type\CreateUserType;
+use Bc\Bundle\UserAdminBundle\Form\Type\UpdateUserType;
 use Bc\Bundle\UserBundle\Entity\User;
 
 /**
