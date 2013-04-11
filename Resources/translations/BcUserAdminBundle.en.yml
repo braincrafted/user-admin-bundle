@@ -11,3 +11,11 @@ user:
 
 menu:
     users: Users
+
+form:
+    username: Username
+    email: Email
+    password: Password
+    enabled: Enabled?
+    expired: Expired?
+    expiresAt: Expires at

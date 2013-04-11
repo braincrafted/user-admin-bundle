@@ -30,26 +30,26 @@ class UpdateUserType extends AbstractType
         $builder->add(
             'username',
             'text',
-            array('label' => 'form.username', 'translation_domain' => 'BcUserBundle')
+            array('label' => 'form.username', 'translation_domain' => 'BcUserAdminBundle')
         );
         $builder->add(
             'email',
             'text',
-            array('label' => 'form.email', 'translation_domain' => 'BcUserBundle')
+            array('label' => 'form.email', 'translation_domain' => 'BcUserAdminBundle')
         );
         $builder->add(
             'plainPassword',
             'password',
-            array('label' => 'form.password', 'translation_domain' => 'BcUserBundle'));
+            array('label' => 'form.password', 'translation_domain' => 'BcUserAdminBundle'));
         $builder->add(
             'enabled',
             'checkbox',
-            array('label' => 'form.enabled', 'translation_domain' => 'BcUserBundle')
+            array('label' => 'form.enabled', 'translation_domain' => 'BcUserAdminBundle')
         );
         $builder->add(
             'expired',
             'checkbox',
-            array('label' => 'form.expired', 'translation_domain' => 'BcUserBundle')
+            array('label' => 'form.expired', 'translation_domain' => 'BcUserAdminBundle')
         );
         $builder->add(
             'expiresAt',
@@ -58,7 +58,7 @@ class UpdateUserType extends AbstractType
                 'date_widget'           => 'single_text',
                 'time_widget'           => 'single_text',
                 'label'                 => 'form.expiresAt',
-                'translation_domain'    => 'BcUserBundle'
+                'translation_domain'    => 'BcUserAdminBundle'
             )
         );
     }
