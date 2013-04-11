@@ -16,4 +16,13 @@
 
 </form>
 
+<table class="table table-stripped">
+    {% if user.lastLogin %}
+    <tr>
+        <th>Last login</th>
+        <td>{{ user.lastLogin|date("Y-m-d H:i:s") }}</td>
+    </tr>
+    {% endif %}
+</table>
+
 {% endblock bc_user_admin_content %}
