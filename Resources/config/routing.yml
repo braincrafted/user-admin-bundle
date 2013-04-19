@@ -13,3 +13,7 @@ bc_user_admin_update:
 bc_user_admin_delete:
     pattern:  /delete/{userId}
     defaults: { _controller: BcUserAdminBundle:UserAdmin:delete }
+
+bc_user_admin_invite_request_list:
+    pattern:  /invite-request
+    defaults: { _controller: BcUserAdminBundle:InviteRequestAdmin:list }

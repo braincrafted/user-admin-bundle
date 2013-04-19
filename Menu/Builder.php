@@ -52,6 +52,11 @@ class Builder
             array('route' => 'bc_user_admin_list')
         );
 
+        $menu->addChild(
+            $this->translator->trans('menu.invite_requests', array(), 'BcUserAdminBundle'),
+            array('route' => 'bc_user_admin_invite_request_list')
+        );
+
         return $menu;
     }
 }
