@@ -17,3 +17,19 @@ bc_user_admin_delete:
 bc_user_admin_invite_request_list:
     pattern:  /invite-request
     defaults: { _controller: BcUserAdminBundle:InviteRequestAdmin:list }
+
+bc_user_admin_invite_list:
+    pattern:  /invite
+    defaults: { _controller: BcUserAdminBundle:Invite:list }
+
+bc_user_admin_invite_create:
+    pattern:  /invite/create
+    defaults: { _controller: BcUserAdminBundle:Invite:create }
+
+bc_user_admin_invite_batch_create:
+    pattern:  /invite/batch-create/{number}
+    defaults: { _controller: BcUserAdminBundle:Invite:batchCreate }
+
+bc_user_admin_invite_delete:
+    pattern:  /invite/delete/{code}
+    defaults: { _controller: BcUserAdminBundle:Invite:delete }

@@ -53,6 +53,11 @@ class Builder
         );
 
         $menu->addChild(
+            $this->translator->trans('menu.invite', array(), 'BcUserAdminBundle'),
+            array('route' => 'bc_user_admin_invite_list')
+        );
+
+        $menu->addChild(
             $this->translator->trans('menu.invite_requests', array(), 'BcUserAdminBundle'),
             array('route' => 'bc_user_admin_invite_request_list')
         );
