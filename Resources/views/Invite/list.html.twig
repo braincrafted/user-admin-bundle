@@ -3,17 +3,7 @@
 {% block bc_user_admin_content %}
 <h1>Invites</h1>
 
-{% for flashMessage in app.session.flashbag.get('success') %}
-    <div class="alert alert-success">
-        <i class="icon-ok"></i> {{ flashMessage }}
-    </div>
-{% endfor %}
-
-{% for flashMessage in app.session.flashbag.get('error') %}
-    <div class="alert alert-error">
-        <i class="icon-remove"></i> {{ flashMessage }}
-    </div>
-{% endfor %}
+{% include 'BcBootstrapBundle::flash.html.twig' %}
 
 <div class="invite-percentage">
     <div class="pull-left">

@@ -103,28 +103,37 @@ class InviteController extends Controller
         return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
     }
 
+    /**
+     * Sends the given invite to an email address.
+     *
+     * @param string $code The invite code
+     */
     public function sendAction($code)
     {
         $manager = $this->get('bc_user.invite_manager');
         $invite = $manager->findInviteByCode($code);
 
         if (!$invite) {
-            $this->get('session')->getFlashBag()->add('error', sprintf('The invite %s does not exist.', $code));
+            $this->get('bc_bootstrap.flash')->error(sprintf('The invite %s does not exist.', $code));
+
             return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
         }
 
         if (!$invite->getEmail()) {
-            $this->get('session')->getFlashBag()->add('error', sprintf('The invite %s does not have an email address associated and can\'t be sent.', $code));
+            $this->get('bc_bootstrap.flash')->error(sprintf('The invite %s does not have an email address associated and can\'t be sent.', $code));
+
             return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
         }
 
         if ($invite->getUser()) {
-            $this->get('session')->getFlashBag()->add('error', sprintf('The invite %s has already been used by %s. You can\'t send an used invite.', $invite->getCode(), $invite->getUser()));
+            $this->get('bc_bootstrap.flash')->error(sprintf('The invite %s has already been used by %s. You can\'t send an used invite.', $invite->getCode(), $invite->getUser()));
+
             return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
         }
 
         if ($invite->isSent()) {
-            $this->get('session')->getFlashBag()->add('error', sprintf('The invite %s has already been sent to the email address %s. You can\'t send an used invite.', $invite->getCode(), $invite->getEmail()));
+            $this->get('bc_bootstrap.flash')->error(sprintf('The invite %s has already been sent to the email address %s. You can\'t send an used invite.', $invite->getCode(), $invite->getEmail()));
+
             return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
         }
 
@@ -147,7 +156,7 @@ class InviteController extends Controller
         $invite->send();
         $manager->updateInvite($invite);
 
-        $this->get('session')->getFlashBag()->add('success', sprintf('The invite %s has been sent to %s.', $invite->getCode(), $invite->getEmail()));
+        $this->get('bc_bootstrap.flash')->success(sprintf('The invite %s has been sent to %s.', $invite->getCode(), $invite->getEmail()));
 
         return $this->redirect($this->generateUrl('bc_user_admin_invite_list'));
     }
