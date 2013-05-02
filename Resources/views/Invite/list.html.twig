@@ -57,7 +57,12 @@
             <td>{{ invite.email }}</td>
             <td><i class="icon-{{ invite.isSent ? 'ok' : 'remove' }}"></i></td>
             <td>{{ invite.user ? invite.user : '' }}</td>
-            <td><a href="{{ path('bc_user_admin_invite_delete', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-remove"></i> Delete</a></td>
+            <td>
+                {% if invite.email and not invite.isSent and not invite.user %}
+                    <a href="{{ path('bc_user_admin_invite_send', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-share-alt"></i> Send</a>
+                {% endif %}
+                <a href="{{ path('bc_user_admin_invite_delete', { 'code': invite.code }) }}" class="btn btn-mini"><i class="icon-remove"></i> Delete</a>
+            </td>
         </tr>
     {% endfor %}
     </tbody>

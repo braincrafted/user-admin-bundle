@@ -33,3 +33,7 @@ bc_user_admin_invite_batch_create:
 bc_user_admin_invite_delete:
     pattern:  /invite/delete/{code}
     defaults: { _controller: BcUserAdminBundle:Invite:delete }
+
+bc_user_admin_invite_send:
+    pattern:  /invite/send/{code}
+    defaults: { _controller: BcUserAdminBundle:Invite:send }
