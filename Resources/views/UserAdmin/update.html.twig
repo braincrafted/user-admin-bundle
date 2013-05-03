@@ -2,7 +2,13 @@
 
 {% block bc_user_admin_content %}
 
-<h1>{{ 'user.update_user'|trans({'%username%': user.username }, 'BcUserAdminBundle') }}</h1>
+<div class="page-header">
+    <h1>{{ 'user.update_user'|trans({'%username%': user.username }, 'BcUserAdminBundle') }}</h1>
+</div>
+
+<div class="btn-toolbar">
+    <div class="btn-group"><a href="{{ path('bc_user_admin_list') }}" class="btn"><i class="icon-chevron-left"></i> {{ 'user.users'|trans({}, 'BcUserAdminBundle') }}</a></div>
+</div>
 
 <form action="{{ path('bc_user_admin_update', { 'userId': user.id }) }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
 
