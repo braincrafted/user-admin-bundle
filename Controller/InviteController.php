@@ -32,8 +32,12 @@ class InviteController extends Controller
         $usedCount = $manager->getUsedInvitesCount();
         $sentCount = $manager->getSentInvitesCount();
 
-        $usedInvitesPercentage = (100/$totalCount)*$usedCount;
-        $sentInvitesPercentage = (100/$totalCount)*($sentCount);
+        $usedInvitesPercentage = 0;
+        $sentInvitesPercentage = 0;
+        if ($totalCount > 0) {
+            $usedInvitesPercentage = (100/$totalCount)*$usedCount;
+            $sentInvitesPercentage = (100/$totalCount)*($sentCount);
+        }
 
         return $this->render('BcUserAdminBundle:Invite:list.html.twig', array(
             'invites'                   => $invites,

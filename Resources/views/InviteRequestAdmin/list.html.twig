@@ -2,14 +2,16 @@
 
 {% block bc_user_admin_content %}
 
-<h1>{{ 'invite_request.invite_requests'|trans({}, 'BcUserAdminBundle') }}</h1>
+<div class="page-header">
+    <h1>{{ 'invite_request.invite_requests'|trans({}, 'BcUserAdminBundle') }}</h1>
+</div>
 
 <table class="table table-striped table-condensed table-bordered table-hover">
     <thead>
         <tr>
             <th>#</th>
-            <th>{{ 'invite_request.email'|trans({}, 'BcUserAdminBundle') }}</th>
-            <th>{{ 'invite_request.date_created'|trans({}, 'BcUserAdminBundle') }}</th>
+            <th>{{ 'invite_request.table.email'|trans({}, 'BcUserAdminBundle') }}</th>
+            <th>{{ 'invite_request.table.date_created'|trans({}, 'BcUserAdminBundle') }}</th>
             <th></th>
         </tr>
     </thead>
@@ -20,6 +22,7 @@
             <td>{{ inviteRequest.email }}</td>
             <td>{{ inviteRequest.createdAt|date('Y-m-d') }}</td>
             <td>
+                <a href="{{ path('bc_user_admin_invite_request_invite', { 'inviteRequestId': inviteRequest.id }) }}" class="btn btn-mini">{{ 'invite_request.table.invite'|trans({}, 'BcUserAdminBundle') }}</a>
             </td>
         </tr>
         {% endfor %}

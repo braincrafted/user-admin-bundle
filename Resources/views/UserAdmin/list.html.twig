@@ -2,7 +2,9 @@
 
 {% block bc_user_admin_content %}
 
-<h1>{{ 'user.users'|trans({}, 'BcUserAdminBundle') }}</h1>
+<div class="page-header">
+    <h1>{{ 'user.users'|trans({}, 'BcUserAdminBundle') }}</h1>
+</div>
 
 {% for flashMessage in app.session.flashbag.get('error') %}
     <div class="alert alert-error">

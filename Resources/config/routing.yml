@@ -18,6 +18,10 @@ bc_user_admin_invite_request_list:
     pattern:  /invite-request
     defaults: { _controller: BcUserAdminBundle:InviteRequestAdmin:list }
 
+bc_user_admin_invite_request_invite:
+    pattern:  /invite-request/invite/{inviteRequestId}
+    defaults: { _controller: BcUserAdminBundle:InviteRequestAdmin:invite }
+
 bc_user_admin_invite_list:
     pattern:  /invite
     defaults: { _controller: BcUserAdminBundle:Invite:list }
