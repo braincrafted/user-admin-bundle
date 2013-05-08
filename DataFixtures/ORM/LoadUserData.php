@@ -19,7 +19,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
         'username'  => 'admin',
         'password'  => 'admin',
         'email'     => 'admin@example.com',
-        'role'     => 'ROLE_ADMIN'
+        'role'      => 'ROLE_ADMIN'
     ));
 
     /**
