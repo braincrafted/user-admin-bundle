@@ -23,6 +23,7 @@
         "braincrafted/bootstrap-bundle":    "dev-develop"
     },
     "require-dev":  {
+        "phpunit/phpunit":                  "3.7.*",
         "braincrafted/testing-bundle":      "dev-master"
     },
     "autoload": {

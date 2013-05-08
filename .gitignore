@@ -1,1 +1,10 @@
-vendor/
+# Composer
+/vendor/
+/composer.lock
+
+# PHPUnit
+/phpunit.xml
+
+# Files for auto-completition with CTags
+/.tags
+/.tags_sorted_by_file
