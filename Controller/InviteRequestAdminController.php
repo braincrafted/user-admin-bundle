@@ -1,7 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-admin-bundle.
- *
+ * This file is part of BcUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -17,7 +16,8 @@ use Bc\Bundle\UserBundle\Entity\User;
 /**
  * UserAdminController
  *
- * @package     braincrafted/user-admin-bundle
+ * @category    Controller
+ * @package     BcUserAdminBundle
  * @subpackage  Controller
  * @author      Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright   2013 Florian Eckerstorfer

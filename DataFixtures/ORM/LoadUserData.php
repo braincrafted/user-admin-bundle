@@ -1,4 +1,8 @@
 <?php
+/**
+ * This file is part of BcUserAdminBundle.
+ * (c) 2013 Florian Eckerstiorfer
+ */
 
 namespace Bc\Bundle\UserAdminBundle\DataFixtures\ORM;
 
@@ -7,6 +11,16 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * LoadUserData
+ *
+ * @category   DoctrineORMDataFixtures
+ * @package    BcUserAdminBundle
+ * @subpackage DataFixtures
+ * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright  2013 Florian Eckerstorfer
+ * @license    http://opensource.org/licenses/MIT The MIT License
+ */
 class LoadUserData implements FixtureInterface, ContainerAwareInterface
 {
     /**

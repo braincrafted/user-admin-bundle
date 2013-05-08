@@ -1,7 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-admin-bundle.
- *
+ * This file is part of BcUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -14,12 +13,11 @@ use Knp\Menu\FactoryInterface;
  * Builder
  *
  * @category   MenuBuilder
- * @package    braincrafted/user-admin-bundle
+ * @package    BcUserAdminBundle
  * @subpackage Menu
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
  * @license    http://opensource.org/licenses/MIT The MIT License
- * @link       http://user-admin.braincrafted.com BcUserAdminBundle for Symfony2
  */
 class Builder
 {

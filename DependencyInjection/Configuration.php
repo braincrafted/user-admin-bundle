@@ -1,7 +1,6 @@
 <?php
 /**
- * This file is part of braincrafted/user-admin-bundle.
- *
+ * This file is part of BcUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -13,12 +12,11 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 /**
  * Configuration
  *
- * @package    braincrafted/user-admin-bundle
+ * @package    BcUserAdminBundle
  * @subpackage DependencyInjection
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
  * @license    http://opensource.org/licenses/MIT The MIT License
- * @link       http://bootstrap.braincrafted.com Bootstrap for Symfony2
  */
 class Configuration implements ConfigurationInterface
 {

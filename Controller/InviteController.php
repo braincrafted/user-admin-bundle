@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of PhentsUserAdminBundle.
+ * This file is part of BcUserAdminBundle.
  * (c) 2013 Florian Eckerstorfer
  */
 
@@ -11,11 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * InviteController.
  *
- * @package    PhentsUserAdminBundle
+ * @category   Controller
+ * @package    BcUserAdminBundle
  * @subpackage Controller
  * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright  2013 Florian Eckerstorfer
- * @link       http://phents.com Phents
+ * @license     http://opensource.org/licenses/MIT The MIT License
  */
 class InviteController extends Controller
 {

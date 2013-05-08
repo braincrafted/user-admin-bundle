@@ -1,4 +1,8 @@
 <?php
+/**
+ * This file is part of BcUserAdminBundle.
+ * (c) 2013 Florian Eckerstorfer
+ */
 
 namespace Bc\Bundle\UserAdminBundle\Tests\Controller;
 
@@ -6,6 +10,17 @@ use Symfony\Bundle\FrameworkBundle\Client;
 
 use Bc\Bundle\TestingBundle\Test\WebTestCase;
 
+/**
+ * InviteControllerTest
+ *
+ * @category   FunctionalTest
+ * @package    BcUserAdminBundle
+ * @subpackage Controller
+ * @author     Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright  2013 Florian Eckerstorfer
+ * @license    http://opensource.org/licenses/MIT The MIT License
+ * @group      functional
+ */
 class InviteControllerTest extends WebTestCase
 {
     public function setUp()
