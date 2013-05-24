@@ -42,24 +42,14 @@ class UpdateUserType extends AbstractType
             'password',
             array('label' => 'form.password', 'translation_domain' => 'BcUserAdminBundle'));
         $builder->add(
+            'timezone',
+            'timezone',
+            array('label' => 'form.timezone', 'translation_domain' => 'BcUserAdminBundle')
+        );
+        $builder->add(
             'enabled',
             'checkbox',
             array('label' => 'form.enabled', 'translation_domain' => 'BcUserAdminBundle')
-        );
-        $builder->add(
-            'expired',
-            'checkbox',
-            array('label' => 'form.expired', 'translation_domain' => 'BcUserAdminBundle')
-        );
-        $builder->add(
-            'expiresAt',
-            'datetime',
-            array(
-                'date_widget'           => 'single_text',
-                'time_widget'           => 'single_text',
-                'label'                 => 'form.expiresAt',
-                'translation_domain'    => 'BcUserAdminBundle'
-            )
         );
     }
 
