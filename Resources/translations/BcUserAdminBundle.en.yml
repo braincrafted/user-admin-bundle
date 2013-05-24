@@ -24,5 +24,7 @@ form:
 
 invite_request:
     invite_requests: Invite requests
-    email: Email
-    date_created: Date created
+    table:
+        email: Email
+        date_created: Date created
+        invite: Invite

@@ -14,10 +14,8 @@
 
     {{ form_widget(form, {'form_type': 'horizontal'}) }}
 
-    <div class="control-group">
-        <div class="controls">
-            <button type="submit" class="btn">{{ 'user.update_user'|trans({}, 'BcUserAdminBundle') }}</button>
-        </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ 'user.update_user'|trans({}, 'BcUserAdminBundle') }}</button>
     </div>
 
 </form>

@@ -3,7 +3,7 @@
 {% block bc_user_admin_content %}
 
 <div class="page-header">
-  <h1>{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</h1>
+    <h1>{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</h1>
 </div>
 
 <div class="btn-toolbar">
@@ -14,10 +14,8 @@
 
     {{ form_widget(form, {'form_type': 'horizontal'}) }}
 
-    <div class="control-group">
-        <div class="controls">
-            <button type="submit" class="btn">{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</button>
-        </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</button>
     </div>
 
 </form>

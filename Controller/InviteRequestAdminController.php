@@ -32,10 +32,37 @@ class InviteRequestAdminController extends Controller
      */
     public function listAction()
     {
-        $inviteRequestManager = $this->get('bc_user.invite_request_manager');
+        $inviteRequestManager = $this->getInviteRequestManager();
 
         return $this->render('BcUserAdminBundle:InviteRequestAdmin:list.html.twig', array(
             'inviteRequests' => $inviteRequestManager->findInviteRequests()
         ));
+    }
+
+    public function inviteAction($inviteRequestId)
+    {
+        $inviteRequestManager = $this->getInviteRequestManager();
+        $inviteManager        = $this->getInviteManager();
+
+        $inviteRequest = $inviteRequestManager->findInviteRequest($inviteRequestId);
+        $invite        = $inviteManager->createInvite();
+
+        $invite->setEmail($inviteRequest->getEmail());
+        $inviteManager->updateInvite($invite);
+
+        $inviteRequest->delete();
+        $inviteRequestManager->updateInviteRequest($inviteRequest);
+
+        return $this->redirect($this->generateUrl('bc_user_admin_invite_request_list'));
+    }
+
+    private function getInviteRequestManager()
+    {
+        return $this->get('bc_user.invite_request_manager');
+    }
+
+    private function getInviteManager()
+    {
+        return $this->get('bc_user.invite_manager');
     }
 }
