@@ -32,7 +32,7 @@ class UserAdminController extends Controller
      */
     public function listAction()
     {
-        $userManager = $this->get('fos_user.user_manager');
+        $userManager = $this->getUserManager();
 
         return $this->render('BcUserAdminBundle:UserAdmin:list.html.twig', array(
             'users' => $userManager->findUsers()
@@ -48,14 +48,15 @@ class UserAdminController extends Controller
      */
     public function createAction(Request $request)
     {
-        $form = $this->createForm(new CreateUserType(), new User());
+        $userManager = $this->getUserManager();
+        $form = $this->createForm(new CreateUserType(), $userManager->createUser());
 
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
             if ($form->isValid()) {
                 $user = $form->getData();
-                $this->get('fos_user.user_manager')->updateUser($user);
+                $this->getUserManager()->updateUser($user);
                 $this->flash('success', sprintf('The user %s has been created.', $user->getUsername()));
                 return $this->redirect($this->generateUrl('bc_user_admin_list'));
             }
@@ -76,7 +77,7 @@ class UserAdminController extends Controller
      */
     public function updateAction($userId, Request $request)
     {
-        $userManager = $this->get('fos_user.user_manager');
+        $userManager = $this->getUserManager();
         $user = $userManager->findUserBy(array('id' => $userId));
 
         if (!$user) {
@@ -115,7 +116,7 @@ class UserAdminController extends Controller
      */
     public function deleteAction($userId)
     {
-        $userManager = $this->get('fos_user.user_manager');
+        $userManager = $this->getUserManager();
         $user = $userManager->findUserBy(array('id' => $userId));
         if ($user) {
             $userManager->deleteUser($user);
@@ -137,5 +138,13 @@ class UserAdminController extends Controller
     protected function flash($type, $message)
     {
         $this->get('session')->getFlashBag()->add($type, $message);
+    }
+
+    /**
+     * @return UserManager
+     */
+    protected function getUserManager()
+    {
+        return $this->get('bc_user.user_manager');
     }
 }
