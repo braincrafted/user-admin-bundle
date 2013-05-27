@@ -19,7 +19,7 @@
     ],
     "require":      {
         "php":                              ">=5.3.3",
-        "braincrafted/user-bundle":         "dev-develop",
+        "braincrafted/user-bundle":         "dev-master",
         "braincrafted/bootstrap-bundle":    "dev-develop"
     },
     "require-dev":  {
