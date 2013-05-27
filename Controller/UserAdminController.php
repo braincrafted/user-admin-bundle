@@ -97,6 +97,9 @@ class UserAdminController extends Controller
             }
         }
 
+        $user->getCreatedAt()->setTimezone(new \DateTimeZone($user->getTimezone()));
+        $user->getUpdatedAt()->setTimezone(new \DateTimeZone($user->getTimezone()));
+
         return $this->render('BcUserAdminBundle:UserAdmin:update.html.twig', array(
             'user'  => $user,
             'form'  => $form->createView()

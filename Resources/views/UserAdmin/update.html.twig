@@ -24,7 +24,15 @@
     {% if user.lastLogin %}
     <tr>
         <th>Last login</th>
-        <td>{{ user.lastLogin|date("Y-m-d H:i:s") }}</td>
+        <td>{{ user.lastLogin|date("Y-m-d H:i:s", user.timezone) }}</td>
+    </tr>
+    <tr>
+        <th>Created at</th>
+        <td>{{ user.createdAt|date("Y-m-d H:i:s", user.timezone) }}</td>
+    </tr>
+    <tr>
+        <th>Updated at</th>
+        <td>{{ user.updatedAt|date("Y-m-d H:i:s", user.timezone) }}</td>
     </tr>
     {% endif %}
 </table>
