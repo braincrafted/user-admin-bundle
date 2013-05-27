@@ -39,6 +39,13 @@ class InviteRequestAdminController extends Controller
         ));
     }
 
+    /**
+     * Sends an invite to an email address.
+     *
+     * @param integer $inviteRequestId The ID of the invite request
+     *
+     * @return Response
+     */
     public function inviteAction($inviteRequestId)
     {
         $inviteRequestManager = $this->getInviteRequestManager();
@@ -56,11 +63,17 @@ class InviteRequestAdminController extends Controller
         return $this->redirect($this->generateUrl('bc_user_admin_invite_request_list'));
     }
 
+    /**
+     * @return InviteRequestManager
+     */
     private function getInviteRequestManager()
     {
         return $this->get('bc_user.invite_request_manager');
     }
 
+    /**
+     * @return InviteManager
+     */
     private function getInviteManager()
     {
         return $this->get('bc_user.invite_manager');
