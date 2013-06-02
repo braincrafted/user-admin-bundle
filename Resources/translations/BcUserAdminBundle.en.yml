@@ -18,9 +18,8 @@ form:
     username: Username
     email: Email
     password: Password
+    timezone: Timezone
     enabled: Enabled?
-    expired: Expired?
-    expiresAt: Expires at
 
 invite_request:
     invite_requests: Invite requests
