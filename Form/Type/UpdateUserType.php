@@ -10,6 +10,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Bc\Bundle\UserBundle\Form\EventListener\SetNameFieldSubscriber;
+
 /**
  * UpdateUserType
  *
@@ -30,26 +32,32 @@ class UpdateUserType extends AbstractType
         $builder->add(
             'username',
             'text',
-            array('label' => 'form.username', 'translation_domain' => 'BcUserAdminBundle')
+            array('label' => 'form.update_user.username', 'translation_domain' => 'BcUserAdminBundle')
         );
         $builder->add(
             'email',
             'text',
-            array('label' => 'form.email', 'translation_domain' => 'BcUserAdminBundle')
+            array('label' => 'form.update_user.email', 'translation_domain' => 'BcUserAdminBundle')
         );
         $builder->add(
             'plainPassword',
             'password',
-            array('label' => 'form.password', 'translation_domain' => 'BcUserAdminBundle'));
+            array('label' => 'form.update_user.password', 'translation_domain' => 'BcUserAdminBundle')
+        );
+        $builder->add(
+            'name',
+            'bc_name',
+            array('label' => 'form.update_user.name', 'translation_domain' => 'BcUserAdminBundle')
+        );
         $builder->add(
             'timezone',
             'timezone',
-            array('label' => 'form.timezone', 'translation_domain' => 'BcUserAdminBundle')
+            array('label' => 'form.update_user.timezone', 'translation_domain' => 'BcUserAdminBundle')
         );
         $builder->add(
             'enabled',
             'checkbox',
-            array('label' => 'form.enabled', 'translation_domain' => 'BcUserAdminBundle')
+            array('label' => 'form.update_user.enabled', 'translation_domain' => 'BcUserAdminBundle')
         );
     }
 

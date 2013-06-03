@@ -15,11 +15,14 @@ menu:
     invite_requests: Invite requests
 
 form:
-    username: Username
-    email: Email
-    password: Password
-    timezone: Timezone
-    enabled: Enabled?
+    update_user:
+        username: Username
+        email: Email
+        password: Password
+        name: Name
+        timezone: Timezone
+        enabled: Enabled?
+
 
 invite_request:
     invite_requests: Invite requests
