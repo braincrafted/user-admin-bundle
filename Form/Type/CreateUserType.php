@@ -6,6 +6,7 @@
 
 namespace Bc\Bundle\UserAdminBundle\Form\Type;
 
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
@@ -20,6 +21,21 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class CreateUserType extends UpdateUserType
 {
+    /**
+     * {@inheritDoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        parent::buildForm($builder, $options);
+
+        $builder->remove('save');
+        $builder->add(
+            'save',
+            'submit',
+            array('label' => 'user.create_user', 'translation_domain' => 'BcUserAdminBundle')
+        );
+    }
+
     /**
      * {@inheritDoc}
      */

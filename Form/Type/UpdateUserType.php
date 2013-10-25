@@ -57,7 +57,16 @@ class UpdateUserType extends AbstractType
         $builder->add(
             'enabled',
             'checkbox',
-            array('label' => 'form.update_user.enabled', 'translation_domain' => 'BcUserAdminBundle')
+            array(
+                'label' => 'form.update_user.enabled',
+                'translation_domain' => 'BcUserAdminBundle',
+                'attr' => array('align_with_widget' => true)
+            )
+        );
+        $builder->add(
+            'save',
+            'submit',
+            array('label' => 'user.update_user', 'translation_domain' => 'BcUserAdminBundle')
         );
     }
 

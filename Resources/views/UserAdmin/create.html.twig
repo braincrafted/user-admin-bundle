@@ -12,11 +12,7 @@
 
 <form action="{{ path('bc_user_admin_create') }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
 
-    {{ form_widget(form, {'form_type': 'horizontal'}) }}
-
-    <div class="form-actions">
-        <button type="submit" class="btn btn-primary">{{ 'user.create_user'|trans({}, 'BcUserAdminBundle') }}</button>
-    </div>
+    {{ form(form, {'style': 'horizontal'}) }}
 
 </form>
 
